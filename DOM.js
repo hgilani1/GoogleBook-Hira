@@ -1,67 +1,15 @@
-// const renderTextToPage = (index, text) => {
-//   document.querySelectorAll("p")[index].textContent = text;
-// };
-
-// data from URL
-
-const urlBase = "https://www.googleapis.com/books/v1/volumes?q=";
-
-const getSearchUrl = (searchTerm) => {
-  return urlBase + searchTerm;
-};
-
-// console.log(getSearchUrl("dog"));
-
-const search = async (searchTerm) => {
-  const requestPromise = fetch(getSearchUrl(searchTerm));
-  const response = await requestPromise;
-  console.log(response);
-  const searchData = await response.json();
-  console.log(searchData);
-
-  const searchResult = searchData.items.map((book) => {
-    const bookInfo = {};
-    if (book.volumeInfo.author) {
-      bookInfo.Author = book.volumeInfo.Author;
-    } else {
-      bookInfo.Author = "Unknown";
-    }
-
-    if (book.volumeInfo.title) {
-      bookInfo.Title = book.volumeInfo.title;
-    } else {
-      bookInfo.Title = "Unkown";
-    }
-
-    if (book.volumeInfo.imageLinks.small) {
-      bookInfo.Image = book.volumeInfo.Image.small;
-    } else {
-      bookInfo.Image = "Unkown";
-    }
-    if (book.volumeInfo.description) {
-      bookInfo.Description = book.volumeInfo.description;
-    } else {
-      bookInfo.Description = "Unkown";
-    }
-
-    bookInfo.Author = book.volumeInfo.authors;
-    bookInfo.Title = book.volumeInfo.title;
-    bookInfo.Description = book.volumeInfo.description;
-    bookInfo.Image = book.volumeInfo.imageLinks.smallThumbnail;
-    return bookInfo;
-  });
-  // console.log(bookInfo);
-
-  // loop for data - NOT WORKING :(
-
+const elementResult = () => {
   // for (let i = 0; i < 10; i++) {
-  //   document.getElementById("result" + i).src = searchResult[i].imageLinks;
-  //   document.createElement("div").innerText = `Title: ${searchResult[i].Title}`;
-  //   document.createElement(
-  //     "div"
+  //   document.getElementById("result" + i + "--image").src =
+  //     searchResult[i].Image;
+  //   document.getElementById(
+  //     "result" + i + "--title"
+  //   ).innerText = `Title: ${searchResult[i].Title}`;
+  //   document.getElementById(
+  //     "result" + i + "--author"
   //   ).innerText = `Author: ${searchResult[i].Author}`;
-  //   document.createElement(
-  //     "div"
+  //   document.getElementById(
+  //     "result" + i + "--description"
   //   ).innerText = `Descripton: ${searchResult[i].Description}`;
   // }
 
@@ -175,34 +123,6 @@ const search = async (searchTerm) => {
   document.getElementById(
     "result10--description"
   ).innerText = `Descripton: ${searchResult[9].Description}`;
-
-  console.log(searchResult);
-  // document.getElementById("result").innerHTML = searchData.search;
-
-  // renderTextToPage(1, searchData.search);
-  // renderTextToPage(0, search.activity);
-
-  // inputSearchResult(search);
 };
 
-// const superSearch = async (searchTerm) => {
-//   const requests = [];
-//   for (let i = 0; i < 40000; i++) {
-//     const requestPromise = fetch(getSearchUrl(searchTerm));
-//   }
-
-//   console.log(requests.length);
-// };
-
-// const displaySearch = document.getElementById("submit");
-// displaySearch.addEventListener("click", () => search(searchTerm));
-
-// const inputSearchResult = (searchResult) => {
-//   document.getElementById("result").innerText = searchResult;
-// };
-
-submit.addEventListener("click", (e) => {
-  e.preventDefault();
-  const searchbar = document.getElementById("searchbar").value;
-  search(searchbar);
-});
+export default elementResult;
