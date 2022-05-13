@@ -1,7 +1,14 @@
-/* Google Books Header */
-.form {
-  position: center;
+$primary-border: #959595 0.5px solid;
+
+// background of website
+body {
+  background-color: gray;
 }
+form {
+  display: flex;
+  flex-direction: column;
+}
+/* Google Books Header */
 #header {
   font-family: "Poppins";
   font-style: normal;
@@ -9,37 +16,201 @@
   font-size: 70px;
   line-height: 105px;
   text-align: center;
-  color: #2589fe;
+  color: #2625bc;
+}
+
+#searchbardiv {
+  margin-left: 30%;
+  justify-items: center;
 }
 
 .searchbar {
   display: flex;
 
-  /* Rectangle 1 */
-
-  #search {
-    box-sizing: border-box;
-    background: #ffffff;
-    border: 1px solid #000000;
-    text-align: center;
-    margin-left: 30%;
-    display: block;
-    border-radius: 10px;
-  }
-
-  #submit {
-    /* Rectangle 2 */
-
-    box-sizing: border-box;
-    display: flex;
-    background: #e7e6e6;
-    border: 1px solid #000000;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    margin-left: 1%;
-  }
+  border-radius: 15px;
+  box-sizing: border-box;
 }
+
+// search bar animation
+.search {
+  border: none;
+  height: 45px;
+  width: 45px;
+  border-radius: 18px;
+  padding-left: 36px;
+  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUITPZyiq-hj4szq32The6YpQV0pOIBrnkbg&usqp=CAU)
+      no-repeat 10px/16px,
+    white;
+  cursor: pointer;
+  transition-property: width, border-radius, box-shadow;
+  transition-duration: 300ms;
+}
+
+.search:focus {
+  width: 200px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px #2625bc;
+  outline: none;
+  cursor: auto;
+}
+
+// submit button
+button {
+  // Rectangle 2
+  box-sizing: border-box;
+  background: #2626bc;
+  color: white;
+  border: 5% solid white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin-left: 1%;
+  width: 60px;
+  height: 45px;
+}
+
+// image in each grid
+img {
+  width: 100px;
+  height: 150px;
+  border: #cbcbcb 0.1px dotted;
+}
+
+// grid for all 10 results
 #result {
   display: grid;
-  border: black 1px solid;
+  // flex-wrap: wrap;
+  grid-template-columns: 1fr 1fr;
+  gap: 1%;
+  // grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "a b"
+    "c d"
+    "e f"
+    "g h"
+    "i j";
+
+  // media queries/ responsive of screen
+  @media only screen and (max-width: 700px) {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "a"
+      "b"
+      "c"
+      "d"
+      "e"
+      "f"
+      "g"
+      "h"
+      "i"
+      "j";
+  }
+
+  // first result grid
+  #result0 {
+    border: $primary-border;
+    grid-area: a;
+    background-color: #ffffff31;
+    padding: 1%;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 5px 0;
+    &--image {
+      flex-wrap: wrap;
+    }
+    &--title {
+      display: flex;
+    }
+    &--author {
+      display: flex;
+    }
+    &--description {
+      display: flex;
+    }
+  }
+
+  // second result grid
+  #result1 {
+    display: flexbox;
+    border: $primary-border;
+    grid-area: b;
+    background-color: #ffffff31;
+    padding: 1%;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 5px 0;
+  }
+
+  // third result grid
+  #result2 {
+    display: flexbox;
+    border: $primary-border;
+    grid-area: c;
+    background-color: #ffffff31;
+    padding: 1%;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 5px 0;
+  }
+  #result3 {
+    display: flexbox;
+    border: $primary-border;
+    grid-area: d;
+    background-color: #ffffff31;
+    padding: 1%;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 5px 0;
+  }
+  #result4 {
+    display: flexbox;
+    border: $primary-border;
+    grid-area: e;
+    background-color: #ffffff31;
+    padding: 1%;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 5px 0;
+  }
+  #result5 {
+    display: flexbox;
+    border: $primary-border;
+    grid-area: f;
+    background-color: #ffffff31;
+    padding: 1%;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 5px 0;
+  }
+  #result6 {
+    display: flexbox;
+    border: $primary-border;
+    grid-area: g;
+    background-color: #ffffff31;
+    padding: 1%;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 5px 0;
+  }
+  #result7 {
+    display: flexbox;
+    border: $primary-border;
+    grid-area: h;
+    background-color: #ffffff31;
+    padding: 1%;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 5px 0;
+  }
+  #result8 {
+    display: flexbox;
+    border: $primary-border;
+    grid-area: i;
+    background-color: #ffffff31;
+    padding: 1%;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 5px 0;
+  }
+
+  #result9 {
+    display: flexbox;
+    border: $primary-border;
+    grid-area: j;
+    background-color: #ffffff31;
+    padding: 1%;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 5px 0;
+  }
 }

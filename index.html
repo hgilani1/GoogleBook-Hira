@@ -5,26 +5,88 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Google Books Search</title>
-    <script defer src="javascript.js"></script>
+    <script defer src="javascript.js" type="module"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <form>
       <h1 id="header">Google Book Search</h1>
-      <div class="searchbar">
+      <div class="searchbardiv">
         <input
-          type="text"
-          id="search"
+          type="search"
+          class="search"
+          id="searchbar"
           maxlength="50"
-          placeholder="Search here"
+          placeholder="Search Here"
           required
           size="50"
         />
-        <input type="submit" id="submit" />
+        <button class="cool" type="submit" id="submit">
+          Submit<i class="ri-arrow-right-line"></i>
+        </button>
       </div>
       <br />
       <div id="result">
-        <p>hello</p>
+        <div id="result0">
+          <img id="resultimage0" />
+          <div id="resulttitle0"></div>
+          <div id="resultauthor0"></div>
+          <div id="resultdescription0"></div>
+        </div>
+        <div id="result1">
+          <img id="resultimage1" />
+          <div id="resulttitle1"></div>
+          <div id="resultauthor1"></div>
+          <div id="resultdescription1"></div>
+        </div>
+        <div id="result2">
+          <img id="resultimage2" />
+          <div id="resulttitle2"></div>
+          <div id="resultauthor2"></div>
+          <div id="resultdescription2"></div>
+        </div>
+        <div id="result3">
+          <img id="resultimage3" />
+          <div id="resulttitle3"></div>
+          <div id="resultauthor3"></div>
+          <div id="resultdescription3"></div>
+        </div>
+        <div id="result4">
+          <img id="resultimage4" />
+          <div id="resulttitle4"></div>
+          <div id="resultauthor4"></div>
+          <div id="resultdescription4"></div>
+        </div>
+        <div id="result5">
+          <img id="resultimage5" />
+          <div id="resulttitle5"></div>
+          <div id="resultauthor5"></div>
+          <div id="resultdescription5"></div>
+        </div>
+        <div id="result6">
+          <img id="resultimage6" />
+          <div id="resulttitle6"></div>
+          <div id="resultauthor6"></div>
+          <div id="resultdescription6"></div>
+        </div>
+        <div id="result7">
+          <img id="resultimage7" />
+          <div id="resulttitle7"></div>
+          <div id="resultauthor7"></div>
+          <div id="resultdescription7"></div>
+        </div>
+        <div id="result8">
+          <img id="resultimage8" />
+          <div id="resulttitle8"></div>
+          <div id="resultauthor8"></div>
+          <div id="resultdescription8"></div>
+        </div>
+        <div id="result9">
+          <img id="resultimage9" />
+          <div id="resulttitle9"></div>
+          <div id="resultauthor9"></div>
+          <div id="resultdescription9"></div>
+        </div>
       </div>
     </form>
   </body>

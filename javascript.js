@@ -1,41 +1,68 @@
+// data from URL
 const urlBase = "https://www.googleapis.com/books/v1/volumes?q=";
 
-getSearchUrl = (searchTerm) => {
+const getSearchUrl = (searchTerm) => {
   return urlBase + searchTerm;
 };
 
+// search function
 const search = async (searchTerm) => {
   const requestPromise = fetch(getSearchUrl(searchTerm));
   const response = await requestPromise;
+  console.log(response);
   const searchData = await response.json();
   console.log(searchData);
 
-  const publishers = searchData.items.map((volume) => {
-    const output = {};
-    if (volume.volumeInfo.authors) output.author = volume.volumeInfo.authors[0];
-    else output.author = "Unknown";
-    output.publisher = volume.volumeInfo.publisher;
-    output.title = volume.volumeInfo.title;
-    output.image = volume.volumeInfo.imageLinks.small;
-    output.description = volume.volumeInfo.description;
+  // search result function
+  const searchResult = searchData.items.map((book) => {
+    const bookInfo = {};
+    if (book.volumeInfo.author) {
+      bookInfo.Author = book.volumeInfo.Author;
+    } else {
+      bookInfo.Author = "Unknown";
+    }
+    if (book.volumeInfo.title) {
+      bookInfo.Title = book.volumeInfo.title;
+    } else {
+      bookInfo.Title = "Unkown";
+    }
+    if (book.volumeInfo.imageLinks.small) {
+      bookInfo.Image = book.volumeInfo.Image.small;
+    } else {
+      bookInfo.Image = "Unkown";
+    }
+    if (book.volumeInfo.description) {
+      bookInfo.Description = book.volumeInfo.description;
+    } else {
+      bookInfo.Description = "Unkown";
+    }
 
-    return output;
+    bookInfo.Author = book.volumeInfo.authors;
+    bookInfo.Title = book.volumeInfo.title;
+    bookInfo.Description = book.volumeInfo.description;
+    bookInfo.Image = book.volumeInfo.imageLinks.smallThumbnail;
+    return bookInfo;
   });
-  console.log(publishers);
-};
 
-const superSearch = async (searchTerm) => {
-  const requests = [];
-  for (let i = 0; i < 40000; i++) {
-    const requestPromise = fetch(getSearchUrl(searchTerm));
+  // loop for search result
+  for (let i = 0; i < 10; i++) {
+    document.getElementById("resultimage" + i).src = searchResult[i].Image;
+    document.getElementById(
+      "resulttitle" + i
+    ).innerText = `Title: ${searchResult[i].Title}`;
+    document.getElementById(
+      "resultauthor" + i
+    ).innerHTML = `Author: ${searchResult[i].Author}`;
+    document.getElementById(
+      "resultdescription" + i
+    ).innerText = `Descripton: ${searchResult[i].Description}`;
   }
-
-  console.log(requests.length);
+  console.log(searchResult);
 };
 
-const displaySearch = document.getElementById("submit");
-displaySearch.addEventListener("click", () => search());
-
-const inputSearchResult = (search) => {
-  document.getElementById("result").innerText = search;
-};
+// submit button - event listener
+submit.addEventListener("click", (e) => {
+  e.preventDefault();
+  const searchbar = document.getElementById("searchbar").value;
+  search(searchbar);
+});
