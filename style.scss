@@ -32,14 +32,36 @@ form {
 
 // Rectangle 1
 
-#search {
-  box-sizing: border-box;
-  background: #ffffff;
-  border: 1px solid #000000;
-  text-align: center;
-  margin-left: 30%;
-  display: block;
-  border-radius: 10px;
+// #search {
+//   box-sizing: border-box;
+//   background: #ffffff;
+//   border: 1px solid #000000;
+//   text-align: center;
+//   margin-left: 30%;
+//   display: block;
+//   border-radius: 10px;
+// }
+
+.search {
+  border: none;
+  height: 45px;
+  width: 45px;
+  border-radius: 18px;
+  padding-left: 36px;
+  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUITPZyiq-hj4szq32The6YpQV0pOIBrnkbg&usqp=CAU)
+      no-repeat 10px/16px,
+    white;
+  cursor: pointer;
+  transition-property: width, border-radius, box-shadow;
+  transition-duration: 300ms;
+}
+
+.search:focus {
+  width: 200px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px #2625bc;
+  outline: none;
+  cursor: auto;
 }
 
 .cool {
@@ -96,7 +118,7 @@ form {
 img {
   width: 100px;
   height: 150px;
-  border: white 0.1px solid;
+  border: #cbcbcb 0.1px dotted;
 }
 
 #result {
@@ -129,7 +151,6 @@ img {
   }
 
   #result0 {
-    display: flexbox;
     border: $primary-border;
     grid-area: a;
     background-color: #ffffff31;
@@ -149,6 +170,30 @@ img {
       display: flex;
     }
   }
+
+  // to create shimmer/loading placeholder
+  // .result0 {
+  //   background-image: linear-gradient(
+  //     90deg,
+  //     #eeeeee 0%,
+  //     #eeeeee 40%,
+  //     #dddddd 50%,
+  //     #dddddd 55%,
+  //     #eeeeee 65%,
+  //     #eeeeee 100%
+  //   );
+  //   background-size: 400%;
+  //   animation: shimmer 1500ms infinite;
+  // }
+
+  // @keyframes shimmer {
+  //   from {
+  //     background-position: 100% 100%;
+  //   }
+  //   to {
+  //     background-position: 0 0;
+  //   }
+  // }
 
   #result1 {
     display: flexbox;
